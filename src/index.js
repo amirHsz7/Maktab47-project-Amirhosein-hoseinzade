@@ -4,11 +4,10 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Main} from './layout'
 import {Home} from './pages/HomePage/Home'
+import AppRoute from './Route/App.route';
 
 ReactDOM.render(
-  <Main>
-    <Home />
-  </Main>,
+  <AppRoute />,
   document.getElementById('root')
 );
 
