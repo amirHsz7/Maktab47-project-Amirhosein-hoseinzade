@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { AdminPanel } from '../../pages/AdminPanel/AdminPanel';
 import { isLogin } from '../../utils';
-import {Main} from '../../layout/'
+import {AdminLayout} from '../../layout/'
 
 // class PrivateRoute extends ReactComponent {
 
@@ -26,9 +25,9 @@ const PrivateRoute = ({component: Component, ...rest}) => {
 
         <Route {...rest} render={props => (
             isLogin() ?
-            <Main>
+            <AdminLayout>
             <Component {...props} />
-            </Main>
+            </AdminLayout>
             : <Redirect to="/signin" />
         )} />
     );
