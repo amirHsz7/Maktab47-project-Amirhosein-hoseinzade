@@ -1,28 +1,30 @@
 .header{
     border-bottom:2px ridge black;
     display:flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: space-between;
+    height: 100px;
 }
 .h1{
     margin-right:30px;
+    font-size: 35px;
 }
 .part{
     display:flex;
     align-items: center;
-    flex-direction: row-reverse;
+    flex-direction: row;
     margin-left: 50px;
 }
 .part2{
     display:flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: row-reverse;
     margin-right: 20px;
 }
 .img{
     margin-left:5px;
 }
 .font{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
 }

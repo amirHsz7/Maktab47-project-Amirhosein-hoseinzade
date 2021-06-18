@@ -1,0 +1,30 @@
+.form{
+    width: 30vw;
+    height:30vh;
+    margin:auto;
+    height: max-content;
+    background: rgb(247,247,247);
+    /* background: radial-gradient(circle, rgba(247,247,247,1) 50%, rgb(226, 226, 255) 100%); */
+    box-shadow: 0 6px 6px rgba(81, 36, 216, 0.2);
+    /* position: absolute;
+    top:10%; */
+
+}
+.group{
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+}
+.link{
+    text-decoration: none;
+    color:white;
+}
+.btn{
+    margin: 10px;
+}
+.container{
+    position:relative;
+    top:10%;
+}

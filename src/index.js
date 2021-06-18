@@ -7,6 +7,8 @@ import {Home} from './pages/HomePage/Home'
 import AppRoute from './Route/App.route';
 import "normalize.css";
 import './asset/styles/global.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css';
 
 ReactDOM.render(
   <AppRoute />,

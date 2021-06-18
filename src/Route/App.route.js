@@ -2,7 +2,7 @@ import { Component } from "react";
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import { AdminPanel } from "../pages/AdminPanel/AdminPanel";
 import SignIn from "../pages/SigninPage/Signin";
-import {Main} from '../layout';
+import {Main, signinLayout} from '../layout';
 import {Home} from '../pages/HomePage/Home'
 import PrivateRoute from './Component/PrivateRoute'
 class AppRoute extends Component {
@@ -59,9 +59,9 @@ class AppRoute extends Component {
             </Main>
           </Route>
           <Route path="/signin" exact>
-            <Main>
+            <signinLayout>
                 <SignIn />
-            </Main>
+            </signinLayout>
           </Route>
           <Route path="/not-found" exact>
             <h1>Not Found Page</h1>
