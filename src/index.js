@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {Main} from './layout'
 import {Home} from './pages/HomePage/Home'
 import AppRoute from './Route/App.route';
+import "normalize.css";
+import './asset/styles/global.scss';
 
 ReactDOM.render(
   <AppRoute />,

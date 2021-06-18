@@ -1,0 +1,43 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#root {
+  background: #eaeaee;
+}
+
+.flex, .flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.alink, .alink-black, .alink-blue {
+  text-decoration: none;
+}
+
+.alink-black {
+  color: black;
+}
+
+.alink-blue {
+  color: #565cb4;
+}
+/*# sourceMappingURL=global.css.map */

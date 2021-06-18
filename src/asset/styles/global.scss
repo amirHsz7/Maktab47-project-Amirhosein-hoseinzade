@@ -1,0 +1,37 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+#root {
+    background: #eaeaee;
+  }
+
+
+  .flex {
+    display: flex;
+  
+    &-column {
+      @extend .flex;
+      flex-direction: column;
+    }
+  }
+  .alink{
+    text-decoration: none;
+    &-black {
+      @extend .alink;
+      color:black
+    }
+    &-blue {
+      @extend .alink;
+      color:rgb(86, 92, 180)
+    }
+  
+  }

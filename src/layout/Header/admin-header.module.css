@@ -1,0 +1,35 @@
+.header{
+    border-bottom:2px ridge black;
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.part{
+    display:flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    border:1px groove black;
+    height:50px;
+    box-shadow:inset 0 0 8px #000000;
+}
+.part2{
+    height:60%;
+    border: 1px groove black;
+    padding: 10px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: center;
+}
+.part2:hover{
+    background-color:rgba(100, 169, 209, 0.281);
+}
+.h1{
+    margin-right: 10px;
+}
+.return{
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}

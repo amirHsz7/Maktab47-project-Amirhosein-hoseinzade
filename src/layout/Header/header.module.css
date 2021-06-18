@@ -1,0 +1,28 @@
+.header{
+    border-bottom:2px ridge black;
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.h1{
+    margin-right:30px;
+}
+.part{
+    display:flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    margin-left: 50px;
+}
+.part2{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 20px;
+}
+.img{
+    margin-left:5px;
+}
+.font{
+    font-size: 20px;
+    font-weight: bold;
+}
