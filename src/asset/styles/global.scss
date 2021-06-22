@@ -10,6 +10,7 @@ a{
 }
 
 a:hover{
+  cursor: pointer;
   text-decoration: underline;
 }
 #root {
@@ -37,3 +38,18 @@ a:hover{
     }
   
   }
+td > p {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+td>div{
+  display: flex;
+  justify-content: center;
+}
+td>div>a{
+  display: inline-flex;
+  margin-right:10px;
+  flex-direction: row;
+  
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Product } from '../../component'
-import {fetchData} from '../../api/todo.api'
+import {fetchData} from '../../api/api'
 
 
 class Home extends Component {

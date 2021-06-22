@@ -26,6 +26,9 @@
 .part2:hover{
     background-color:rgba(100, 169, 209, 0.281);
 }
+.part2:active{
+    background-color:rgba(100, 169, 209, 0.281);
+}
 .h1{
     margin-right: 10px;
     font-size: 30px;
