@@ -10,36 +10,36 @@ class Home extends Component {
             itemList : []
         }
     }
-handleRender(){
-    const renderElement = []
-    this.state.itemList.forEach(e =>{
-        renderElement.push(<Product name={e.name} price={e.price} img={e.image}/>)
-    })
-    console.log(renderElement)
-    return renderElement;
-}
+// handleRender(){
+//     const renderElement = []
+//     this.state.itemList.forEach(e =>{
+//         renderElement.push(<Product name={e.name} price={e.price} img={e.image}/>)
+//     })
+//     console.log(renderElement)
+//     return renderElement;
+// }
 
-    async componentDidMount() {
+//     async componentDidMount() {
 
         
-        const db = await fetchData('foodstuff');
-        const users=db["dairy"]
-        const itemList = users.map(e =>{
-               return {
-                    name :e.name,
-                    price : e.price,
-                    image: e.image
-                }
-        })
-        this.setState({itemList  })
+//         const db = await fetchData('foodstuff');
+//         const users=db["dairy"]
+//         const itemList = users.map(e =>{
+//                return {
+//                     name :e.name,
+//                     price : e.price,
+//                     image: e.image
+//                 }
+//         })
+//         this.setState({itemList  })
         
-    }
+    // }
       
     render() {
-        console.log(this.itemList)
+        // console.log(this.itemList)
         return (
             <div>
-                {this.handleRender()}
+                {/* {this.handleRender()} */}
             </div>
         )
     }

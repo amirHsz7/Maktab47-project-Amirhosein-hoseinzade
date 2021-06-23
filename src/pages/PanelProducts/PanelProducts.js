@@ -13,88 +13,85 @@ class PanelProducts extends Component {
             this.state = {
                 itemList : [],
                 paginationBasic : null,
-                pages : {},
+                pages : 1,
                 currentPage: 1,
                 emptyArrey:[]
             }
         }
-          
     handleRender(){
-        let counterPage = 0
-        let template = 0
-        let flag = 0;
         const renderElement = []
         this.state.itemList.forEach(e =>{
-            if(counterPage == this.state.currentPage) return false
             renderElement.push(
-                <tr>
-                    <td><p><Image src={e.image} height='40' width='40' rounded /></p></td>
-                    <td><p>{e.name}</p></td>
-                    <td><p>{e.category} - {e.group}</p></td>
-                    <td><div><a className={`alink-blue`}>ویرایش</a><a className={`alink-blue`}>حذف</a></div></td>
-                </tr>
+                    <tr>
+                        <td><p><Image src={e.image} height='40' width='40' rounded /></p></td>
+                        <td><p>{e.name}</p></td>
+                        <td><p>{e.category} - {e.group}</p></td>
+                        <td><div><a className={`alink-blue`}>حذف</a><a className={`alink-blue`}>ویرایش</a></div></td>
+                    </tr>
             )
-                
-        template++
-        if(template==5) {
-            counterPage++ 
-            template=0
-        }
-        
         })
-        return renderElement.slice(-5);
+        console.log(renderElement)
+        return renderElement;
     }
-    async componentDidMount() {
-        const db = await fetchData('foodstuff');
-        const allUsers =[]
-        for (const [key, value] of Object.entries(db)) {
-           value.forEach(e=>{
-               allUsers.push(e)
-           })
-          }
-          
-        console.log('allusers' , allUsers)
-        const itemList = []
-        let temp = []
-        let tempLastPage = []
-           allUsers.forEach(e=>{
-               itemList.push({
-                name :e.name,
-                price : e.price,
-                image: e.image,
-                category : e.category,
-                group : e.group,
-                id : e.id
-               })
-           }) 
-
-        console.log('templastpage' , tempLastPage)
-        // if(tempLastPage != [] && flag==0){
-        //     itemList.push(tempLastPage)
-        // }
-        this.setState({itemList : itemList})
+    async handlePage(num){
         
+       const db = await fetchData(`products?_page=${num}&_limit=5`);
+       const itemList = []
+       db.forEach(e =>{
+            itemList.push( {
+                   name :e.name,
+                   price : e.price,
+                   image: e.image,
+                   category : e.category,
+                   group : e.group,
+                   id : e.id
+               })
+       })
+       if(db.length == 5) { 
+           if(num > this.state.currentPage) this.state.currentPage  = this.state.currentPage+1
+           
+        }
+       
+       this.setState({itemList : itemList })
+    }
+        async componentDidMount() {
+        
+            
+            const db = await fetchData(`products?_page=${1}&_limit=5`);
+            console.log('db :',db)
+            const itemList = []
+            db.forEach(e =>{
+                   return itemList.push( {
+                        name :e.name,
+                        price : e.price,
+                        image: e.image,
+                        category : e.category,
+                        group : e.group,
+                        id : e.id
+                    })
+            })
+
+            this.setState({itemList : itemList })
+
+        
+    }
+    paginationBasic (){
         let active = this.state.currentPage
         const items = [];
-        for (let number = 1; number <= allUsers.length / 5 +1; number++) {
+        
+        for (let number = 1; number <= this.state.currentPage + 1; number++) {
           items.push(
             <Pagination.Item key={number} onClick={()=> this.handlePage(number)} className={styles.btnpage}>
               {number}
             </Pagination.Item>,
           );
         }
-        this.setState({paginationBasic : items})
-    }
-    paginationBasic (){
+        
         return (
-           <div className={styles.pagination}> <Pagination>{this.state.paginationBasic}</Pagination></div>
+           <div className={styles.pagination}> <Pagination>{items}</Pagination></div>
         )
     }
-    handlePage(num){
-        this.setState({currentPage: num})
-        console.log('active',this.state.currentPage)
-    }
-
+      
     render() {
         
         console.log('item list' , this.state.itemList)
