@@ -76,7 +76,6 @@ class PanelProducts extends Component {
         
     }
     paginationBasic (){
-        let active = this.state.currentPage
         const items = [];
         
         for (let number = 1; number <= this.state.currentPage + 1; number++) {

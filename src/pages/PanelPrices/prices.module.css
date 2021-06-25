@@ -1,0 +1,13 @@
+.topContainer{
+    margin : 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.table{
+    margin:50px;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+}

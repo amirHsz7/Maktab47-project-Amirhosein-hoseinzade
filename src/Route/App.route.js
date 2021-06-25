@@ -6,6 +6,7 @@ import {Main, signinLayout} from '../layout';
 import {Home} from '../pages/HomePage/Home'
 import PrivateRoute from './Component/PrivateRoute'
 import { PanelProducts } from "../pages/PanelProducts/PanelProducts";
+import {PanelPrices} from '../pages/PanelPrices/PanelPrices';
 
 class AppRoute extends Component {
   render() {
@@ -72,7 +73,7 @@ class AppRoute extends Component {
           <Redirect to="/admin-panel-products" />
           </Route>
           <PrivateRoute  path="/admin-panel-products" component={PanelProducts} exact ></PrivateRoute>
-          <PrivateRoute  path="/admin-panel-prices" component={AdminPanel} exact ></PrivateRoute>
+          <PrivateRoute  path="/admin-panel-prices" component={PanelPrices} exact ></PrivateRoute>
           <PrivateRoute  path="/admin-panel-orders" component={AdminPanel} exact ></PrivateRoute>
           <Redirect to="/not-found" />
         </Switch>
