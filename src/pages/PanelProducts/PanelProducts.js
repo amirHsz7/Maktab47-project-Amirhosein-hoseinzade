@@ -97,7 +97,7 @@ class PanelProducts extends Component {
         return (
             <div>
                 <div className={styles.container}>
-                    <h1>مدیریت کالا</h1>
+                    <h1 className={'fontSize'}>مدیریت کالا</h1>
                     <Button variant="success">افزودن کالا</Button>
                 </div>
                 <div className={styles.table}>

@@ -1,0 +1,27 @@
+.margin{
+    margin-left: 10px;
+}
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    margin:10px;
+}
+.radioContainer{
+  display: flex; 
+  flex-direction: row-reverse; 
+}
+.radioContainerGroup{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.fontSize{
+    font-size: 24px;
+}
+.table{
+    margin:50px;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+}

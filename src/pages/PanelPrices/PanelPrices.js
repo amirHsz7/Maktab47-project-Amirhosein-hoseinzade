@@ -84,7 +84,7 @@ class PanelPrices extends Component {
         return (
             <div>
                 <div className={styles.topContainer}>
-                    <h1>مدیریت موجودی و قیمت ها</h1>
+                    <h1 className={'fontSize'}>مدیریت موجودی و قیمت ها</h1>
                     <Button variant="primary">افزودن کالا</Button>
                 </div>
                 <div className={styles.table}>
