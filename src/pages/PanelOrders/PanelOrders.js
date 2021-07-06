@@ -98,7 +98,7 @@ class PanelOrders extends Component {
                     <label for="group1">سفارش های تحویل داده شده</label>
                 </div>
                 <div dir="rtl" className={`${styles.radioContainerGroup} mr-2`}>
-                    <input inline name="group1" className={'ml-2'} type={"radio"} id={`inline-radio-2`} key={2} onChange ={()=>this.tellPage2()} />
+                    <input inline name="group1" className={'ml-2'} type={"radio"} id={`inline-radio-2`} key={2} onChange ={()=>this.tellPage2()} defaultChecked/>
                     <label for="group1">سفارش های در حال انتظار تحویل</label>
                 </div>
             </div>  

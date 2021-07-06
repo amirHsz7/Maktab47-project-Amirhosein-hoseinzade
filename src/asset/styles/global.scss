@@ -38,7 +38,13 @@ a:hover{
     }
   
   }
-td > p {
+td > p   {
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+td > input{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -59,4 +65,33 @@ td>div>a{
 
 .fontSize{
   font-size: 20px;
+}
+
+
+.normal{
+  background-color: rgba(0, 0, 0, 0);
+  border : 0;
+  color:rgb(86, 92, 180);
+
+}
+
+.normal:hover {
+  text-decoration: underline;
+}
+.hidden {
+  display: none;
+}
+.input {
+  width: 100px;
+  border : 0;
+  background-color: rgba(86, 92, 180, 0)
+}
+input:focus{
+  background-color: white;
+}
+.animatebtn{
+  transition: all .35s;
+}
+.WHITE_COLOR{
+  color:rgba(255, 0, 0, 0)
 }
