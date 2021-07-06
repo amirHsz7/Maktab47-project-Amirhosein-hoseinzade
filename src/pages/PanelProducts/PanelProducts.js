@@ -5,8 +5,7 @@ import Table from 'react-bootstrap/Table'
 import {fetchData} from '../../api/api'
 import Image from 'react-bootstrap/Image'
 import Pagination from 'react-bootstrap/Pagination'
-
-
+import {AddProduct,Editproduct,DeleteProduct} from './ModalProduct/ModalProduct'
 class PanelProducts extends Component {
     constructor(props){
             super(props)
@@ -15,7 +14,8 @@ class PanelProducts extends Component {
                 paginationBasic : null,
                 pages : 1,
                 currentPage: 1,
-                emptyArrey:[]
+                emptyArrey:[],
+                totalPages:2
             }
         }
     handleRender(){
@@ -26,7 +26,7 @@ class PanelProducts extends Component {
                         <td><p><Image src={e.image} height='40' width='40' rounded /></p></td>
                         <td><p>{e.name}</p></td>
                         <td><p>{e.category} - {e.group}</p></td>
-                        <td><div><a className={`alink-blue`}>حذف</a><a className={`alink-blue`}>ویرایش</a></div></td>
+                        <td><div><DeleteProduct id={e.id} /><Editproduct id={e.id} name={e.name} gp={e.group} /></div></td>
                     </tr>
             )
         })
@@ -35,7 +35,9 @@ class PanelProducts extends Component {
     }
     async handlePage(num){
         
-       const db = await fetchData(`products?_page=${num}&_limit=5`);
+       const db = await fetchData(`products?category=products&_page=${num}&_limit=5`);
+       
+       
        const itemList = []
        db.forEach(e =>{
             itemList.push( {
@@ -56,8 +58,9 @@ class PanelProducts extends Component {
     }
         async componentDidMount() {
         
-            
-            const db = await fetchData(`products?_page=${1}&_limit=5`);
+            const totalpages = await fetchData(`products?isPages=true`);
+            this.setState({totalPages : totalpages[0]["totalpage"]})
+            const db = await fetchData(`products?category=products&_page=${1}&_limit=5`);
             console.log('db :',db)
             const itemList = []
             db.forEach(e =>{
@@ -76,9 +79,10 @@ class PanelProducts extends Component {
         
     }
     paginationBasic (){
+
         const items = [];
         
-        for (let number = 1; number <= this.state.currentPage + 1; number++) {
+        for (let number = 1; number <= this.state.totalPages ; number++) {
           items.push(
             <Pagination.Item key={number} onClick={()=> this.handlePage(number)} className={styles.btnpage}>
               {number}
@@ -98,7 +102,7 @@ class PanelProducts extends Component {
             <div>
                 <div className={styles.container}>
                     <h1 className={'fontSize'}>مدیریت کالا</h1>
-                    <Button variant="success">افزودن کالا</Button>
+                    <AddProduct />
                 </div>
                 <div className={styles.table}>
                     <Table striped bordered hover size="sm" >
