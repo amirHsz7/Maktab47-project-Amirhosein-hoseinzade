@@ -7,7 +7,6 @@ class Main extends Component {
     return (
       <div>
         <Header />
-        <h1>Main Layout</h1>
         {this.props.children}
       </div>
     )

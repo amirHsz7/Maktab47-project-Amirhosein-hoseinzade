@@ -23,7 +23,7 @@ class PanelProducts extends Component {
         this.state.itemList.forEach(e =>{
             renderElement.push(
                     <tr>
-                        <td><p><Image src={e.image} height='40' width='40' rounded /></p></td>
+                        <td><p><Image src={`http://localhost:3000${e.image}`} height='40' width='40' rounded /></p></td>
                         <td><p>{e.name}</p></td>
                         <td><p>{e.category} - {e.group}</p></td>
                         <td><div><DeleteProduct id={e.id} /><Editproduct id={e.id} name={e.name} gp={e.group} /></div></td>

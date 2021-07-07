@@ -13,7 +13,7 @@ import {BASE_URL_SITE} from '../../../configs/variables.config'
   async function  handleForm(){
     var form = new FormData()
     form.append('name',document.getElementById('nameid').value );
-    form.append('image',document.getElementById('FormControlFile1').value );
+    form.append('image',document.getElementById('FormControlFile1').files[0] );
     form.append('group',document.getElementById('groupid').value );
     form.append('category','products' );
         const resualt = await postFormProduct(form)
@@ -72,20 +72,13 @@ import {BASE_URL_SITE} from '../../../configs/variables.config'
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  async function  handleForm(){
-    // var form1 = new FormData()
-    // form1.append("name",document.getElementById('nameid').value );
-    // form1.append('image',document.getElementById('FormControlFile1').value );
-    // form1.append('group',document.getElementById('groupid').value );
-    var obj = {
-      "name" : "",
-      "group": "",
-      "image":""
-    }
-    obj["name"]=document.getElementById('nameid').value
-    obj["group"]=document.getElementById('groupid').value
-    obj["image"]=document.getElementById('FormControlFile1').value
-          const resualt = await editFormProduct(props.id,obj)
+  async function  handleForm(e){
+    
+    var form1 = new FormData()
+    form1.append("name",document.getElementById('nameid').value );
+    form1.append('image',document.getElementById('FormControlFile1').files[0] );
+    form1.append('group',document.getElementById('groupid').value );
+          const resualt = await editFormProduct(props.id,form1)
 
     }
     return (

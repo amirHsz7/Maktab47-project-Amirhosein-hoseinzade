@@ -8,6 +8,7 @@ import PrivateRoute from './Component/PrivateRoute'
 import { PanelProducts } from "../pages/PanelProducts/PanelProducts";
 import {PanelPrices} from '../pages/PanelPrices/PanelPrices';
 import { PanelOrders } from "../pages/PanelOrders/PanelOrders";
+import  Categories  from "../pages/categories/Categories";
 
 class AppRoute extends Component {
   render() {
@@ -22,24 +23,24 @@ class AppRoute extends Component {
                 <Home />
             </Main>
           </Route>
-          <Route path="/category-groceries" exact>
+          <Route path="/categories" exact>
             <Main>
-                <h1>category-groceries</h1>
+                <Categories />
             </Main>
           </Route>
-          <Route path="/category-dairy" exact>
+          <Route path="/dairy" exact>
             <Main>
-                <h1>category-dairy</h1>
+            <Categories group="dairy"/>
             </Main>
           </Route>
-          <Route path="/category-protein-foods" exact>
+          <Route path="/protein-foods" exact>
             <Main>
                 <h1>category-protein-foods</h1>
             </Main>
           </Route>
-          <Route path="/category-beverages" exact>
+          <Route path="/beverages" exact>
             <Main>
-                <h1>category-beverages</h1>
+            <Categories group="beverages"/>
             </Main>
           </Route>
           <Route path="/product" exact>

@@ -1,28 +1,30 @@
 .container{
     direction: rtl;
-    width:250px;
+    width:350px;
     /* border:1px groove rgb(214, 214, 214); */
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    height: 100px;
+    justify-content: space-between;
+    height: 120px;
     align-items: center;
     background-color: rgb(214, 214, 214);
 }
 .container:hover{
     background-color: rgb(224, 224, 224);
+    cursor: pointer;
 }
 .innercontainer{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin:10px;
+    margin-left: 70px;
     align-items: flex-start;
 }
 .name{
     margin-bottom: 10px;
-    font-size: 18px;
+    font-size: 24px;
 }
 .price{
-    font-size: 11px;
+    font-size: 14px;
 }

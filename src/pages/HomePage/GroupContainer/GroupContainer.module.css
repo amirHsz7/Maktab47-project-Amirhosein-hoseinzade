@@ -1,0 +1,23 @@
+.GroupContainer{
+    display: flex;
+    justify-content:space-between;
+    /* background-color: black; */
+    margin : 10px;
+    flex-wrap: wrap;
+    /* margin-bottom: 20px; */
+}
+.link{
+    margin-right: 20px;
+    font-size: 30px;
+}
+.link:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.GroupContainer > div{
+    margin-bottom: 30px;
+    flex : 30%;
+}
+.mainDiv{
+    margin-top:30px;
+}

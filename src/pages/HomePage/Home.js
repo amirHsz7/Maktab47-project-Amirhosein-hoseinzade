@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
-import { Product } from '../../component'
-import {fetchData} from '../../api/api'
+import  GroupContainer  from './GroupContainer/GroupContainer'
 
 
 class Home extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            itemList : []
-        }
-    }
+    // constructor(props){
+    //     super(props)
+    //     this.state = {
+    //         itemList : []
+    //     }
+    // }
 // handleRender(){
 //     const renderElement = []
 //     this.state.itemList.forEach(e =>{
@@ -39,6 +38,8 @@ class Home extends Component {
         // console.log(this.itemList)
         return (
             <div>
+                <GroupContainer group="dairy" />
+                <GroupContainer group="beverages" />
                 {/* {this.handleRender()} */}
             </div>
         )

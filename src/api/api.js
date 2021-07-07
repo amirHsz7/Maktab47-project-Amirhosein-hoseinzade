@@ -11,7 +11,9 @@ export function fetchData(group) {
 }
 
 export function postFormProduct(data) {
-  return http.post(`/products`, data)
+  return http.post(`/products`, data,{headers: {
+    'Content-Type': 'multipart/form-data'
+  }})
     .then((response) => response.data)
     .catch((error) => error);
 }
