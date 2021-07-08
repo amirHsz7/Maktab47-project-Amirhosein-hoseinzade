@@ -23,24 +23,24 @@ class AppRoute extends Component {
                 <Home />
             </Main>
           </Route>
-          <Route path="/categories" exact>
+          <Route path="/groceries" exact>
             <Main>
-                <Categories />
+              <Categories />
             </Main>
           </Route>
           <Route path="/dairy" exact>
             <Main>
-            <Categories group="dairy"/>
+            <Categories/>
             </Main>
           </Route>
           <Route path="/protein-foods" exact>
             <Main>
-                <h1>category-protein-foods</h1>
+            <Categories/>
             </Main>
           </Route>
           <Route path="/beverages" exact>
             <Main>
-            <Categories group="beverages"/>
+            <Categories/>
             </Main>
           </Route>
           <Route path="/product" exact>

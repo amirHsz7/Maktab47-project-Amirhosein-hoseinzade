@@ -16,16 +16,14 @@ class GroupContainer extends Component {
     
     handleRender(){
         const renderElement = []
-        const renderElement2 = []
         let num = this.state.itemList.length
         this.state.itemList.forEach(e =>{
-                 renderElement.push(<div><Product name={e.name} price={e.price} img={e.image}/></div>)
+                 renderElement.push(<div><Product name={e.name} price={e.price} img={`http://localhost:3000${e.image}`}/></div>)
         })
-        console.log(renderElement)
         return renderElement
     }
     handleClick = () => {
-        this.props.history.push(`/categories`,{
+        this.props.history.push(`/${this.props.group}`,{
              group : this.props.group
         })
     }
