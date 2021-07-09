@@ -40,6 +40,8 @@ class Home extends Component {
             <div>
                 <GroupContainer group="dairy" />
                 <GroupContainer group="beverages" />
+                <GroupContainer group="protein-foods" />
+                <GroupContainer group="groceries" />
                 {/* {this.handleRender()} */}
             </div>
         )

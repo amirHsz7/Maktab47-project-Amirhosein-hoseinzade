@@ -32,7 +32,7 @@ import {BASE_URL_SITE} from '../../../configs/variables.config'
             <Modal.Title>فرم افزودن کالا</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form id="myForm" onSubmit={handleForm} action="#">
+            <Form id="myForm" onSubmit={handleForm} action={`${BASE_URL_SITE}/admin-panel`}>
                 <Form.Group>
                   <Form.File id="FormControlFile1" label="تصویر کالا" value={props.img} />
                 </Form.Group>
@@ -73,13 +73,32 @@ import {BASE_URL_SITE} from '../../../configs/variables.config'
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   async function  handleForm(e){
-    
+    // e.preventDefault()
     var form1 = new FormData()
-    form1.append("name",document.getElementById('nameid').value );
-    form1.append('image',document.getElementById('FormControlFile1').files[0] );
-    form1.append('group',document.getElementById('groupid').value );
-          const resualt = await editFormProduct(props.id,form1)
-
+    var form2 = new FormData()
+    const image = document.getElementById('FormControlFile1').files[0]
+    const name = document.getElementById('nameid').value 
+    const group = document.getElementById('groupid').value
+    if(name != document.getElementById('nameid').defaultValue || group != document.getElementById('groupid').defaultValue ){
+      form1.append('name',name)
+      form1.append('group',group)
+      editFormProduct(props.id,form1)
+    }
+    if(image !== undefined){
+      form2.append('image',image );
+         await editFormProduct(props.id,form2)
+    }
+          
+    // var obj = {
+    //   "name" : '',
+    //   "group":''
+    // }
+    // obj["name"] = document.getElementById('nameid').value
+    // obj["group"] = document.getElementById('groupid').value
+    // var form1 = new FormData()
+    // form1.append('image',document.getElementById('FormControlFile1').files[0] );  
+    // await editFormProduct(props.id,obj)
+    
     }
     return (
       <>
@@ -91,12 +110,12 @@ import {BASE_URL_SITE} from '../../../configs/variables.config'
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title>فرم افزودن کالا</Modal.Title>
+            <Modal.Title>فرم ویرایش کالا</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form id="myForm" onSubmit={handleForm} action="#">
+            <Form id="myForm" onSubmit={handleForm} action={`${BASE_URL_SITE}/admin-panel`}>
                 <Form.Group>
-                  <Form.File id="FormControlFile1" label="تصویر کالا" defaultValue={props.img} />
+                  <Form.File id="FormControlFile1" label="تصویر کالا" />
                 </Form.Group>
                 <Form.Group controlId="formBasicName">
                     <Form.Label>نام کالا</Form.Label>

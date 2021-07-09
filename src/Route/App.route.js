@@ -9,6 +9,8 @@ import { PanelProducts } from "../pages/PanelProducts/PanelProducts";
 import {PanelPrices} from '../pages/PanelPrices/PanelPrices';
 import { PanelOrders } from "../pages/PanelOrders/PanelOrders";
 import  Categories  from "../pages/categories/Categories";
+// import Product from "../pages/Product/Product";
+import ProductPage from "../pages/Product/Product";
 
 class AppRoute extends Component {
   render() {
@@ -43,9 +45,9 @@ class AppRoute extends Component {
             <Categories/>
             </Main>
           </Route>
-          <Route path="/product" exact>
+          <Route path="/product">
             <Main>
-                <h1>product</h1>
+                <ProductPage />
             </Main>
           </Route>
           <Route path="/cart" exact>  

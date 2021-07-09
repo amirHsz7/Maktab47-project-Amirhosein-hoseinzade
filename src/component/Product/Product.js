@@ -5,7 +5,7 @@ export class Product extends Component {
     render() {
         return (
             <div className={styles.container}>
-               <Image src={this.props.img} height='110' width='110' rounded />
+               <Image className={styles.image} src={this.props.img} height='110' width='110' rounded />
                 <div className={styles.innercontainer}>
                    <div className={styles.name}>{this.props.name}</div>
                    <div className={styles.price}>{this.props.price} تومان</div>

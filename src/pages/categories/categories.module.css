@@ -7,9 +7,10 @@
     width:70%;
 }
 .productContainer{
+    /* width: max-content; */
     display: flex;
     flex-direction: row-reverse;
-    justify-content:flex-end;
+    justify-content:space-between;
     flex-wrap: wrap;
 }
 .productContainer > div{

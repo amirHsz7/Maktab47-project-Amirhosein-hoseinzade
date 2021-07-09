@@ -17,7 +17,7 @@ import styles from './categories.module.css'
         const renderElement = []
         let num = this.state.itemList.length
         this.state.itemList.forEach(e =>{
-                 renderElement.push(<div><Product name={e.name} price={e.price} img={`http://localhost:3000${e.image}`}/></div>)
+                 renderElement.push(<div onClick={()=>{this.handleCickProduct(e.id)}}><Product name={e.name} price={e.price} img={`http://localhost:3000${e.image}`}/></div>)
         })
         return renderElement
     }
@@ -28,7 +28,8 @@ import styles from './categories.module.css'
                 return {
                      name :e.name,
                      price : e.price,
-                     image: e.image
+                     image: e.image,
+                     id : e.id
                  }
             })
             this.setState({itemList : itemList , currentPage : this.state.currentPage + 1 })
@@ -41,7 +42,8 @@ import styles from './categories.module.css'
                 return {
                      name :e.name,
                      price : e.price,
-                     image: e.image
+                     image: e.image,
+                     id : e.id
                  }
             })
             this.setState({itemList : itemList , currentPage : this.state.currentPage - 1 })
@@ -53,13 +55,19 @@ import styles from './categories.module.css'
             })
             window.location.reload();
     }
+    handleCickProduct(id){
+        this.props.history.push(`/product/${id}`,{
+            id : id
+       })
+    }
     async componentDidMount() {
         const db = await fetchData(`products?group=${this.state.group}&_page=1&_limit=6&_sort=id&_order=desc`);
         const itemList = db.map(e =>{
             return {
                  name :e.name,
                  price : e.price,
-                 image: e.image
+                 image: e.image,
+                 id : e.id
              }
         })
         this.setState({itemList  })

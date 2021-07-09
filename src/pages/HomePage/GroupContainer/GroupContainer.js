@@ -18,7 +18,7 @@ class GroupContainer extends Component {
         const renderElement = []
         let num = this.state.itemList.length
         this.state.itemList.forEach(e =>{
-                 renderElement.push(<div><Product name={e.name} price={e.price} img={`http://localhost:3000${e.image}`}/></div>)
+                 renderElement.push(<div onClick={()=>{this.handleCickProduct(e.id)}}><Product name={e.name} price={e.price} img={`http://localhost:3000${e.image}`}/></div>)
         })
         return renderElement
     }
@@ -36,11 +36,17 @@ class GroupContainer extends Component {
                return {
                     name :e.name,
                     price : e.price,
-                    image: e.image
+                    image: e.image,
+                    id : e.id
                 }
         })
         this.setState({itemList  })
         
+    }
+    handleCickProduct(id){
+        this.props.history.push(`/product/${id}`,{
+            id : id
+       })
     }
     render() {
         

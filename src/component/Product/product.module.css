@@ -28,3 +28,14 @@
 .price{
     font-size: 14px;
 }
+.image:before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 110px;
+    width: 110px;
+    background-image: url("../../asset/images/logomain.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

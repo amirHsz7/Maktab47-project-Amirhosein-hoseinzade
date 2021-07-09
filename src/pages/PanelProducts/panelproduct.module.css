@@ -11,3 +11,15 @@
     display: flex;
     justify-content: center;
 }
+
+.image:before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-image: url("../../asset/images/logomain.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
