@@ -4,7 +4,10 @@ import {fetchData} from '../../api/api'
 import styles from './product.module.css'
 import Image from 'react-bootstrap/Image'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import {addToCart} from  '../../redux/actions/index'
+import { connect } from "react-redux";
+
 class ProductPage extends Component {
     constructor(props){
         super(props);
@@ -12,6 +15,7 @@ class ProductPage extends Component {
             id : this.props.location.state.id,
             itemList : null,
             product : {
+                id : null,
                 name : null,
                 image : null,
                 category:null,
@@ -26,7 +30,7 @@ class ProductPage extends Component {
     }
     async componentDidMount(){
         const db = await fetchData(`products/${this.state.id}`);
-        this.setState({product:{name:db.name,image:db.image,category:db.category,group:db.group,price:db.price,inventory:db.inventory}})
+        this.setState({product:{id:db.id,name:db.name,image:db.image,category:db.category,group:db.group,price:db.price,inventory:db.inventory}})
         console.log(this.state.product.image)
         
         if(!this.state.product.price) {
@@ -43,6 +47,7 @@ class ProductPage extends Component {
         return renderElement
     }
     render() {
+        const { products , addToCart } = this.props;
         const product = this.state.product
         
         return (
@@ -59,9 +64,9 @@ class ProductPage extends Component {
                         <div style={{display:"flex" ,flexDirection:"column" ,alignItems:"flex-start"}}>
                             <div><p id="pp">{product.price} تومان</p></div>
                             <div className={styles.formContainer}>
-                                <Button className={styles.btn} variant="success">اضافه به سبد خرید</Button>
+                                <Button className={styles.btn} variant="success" onClick={()=>{addToCart(this.state.product.id,{name : product.name,inventory : product.inventory,price : product.price})}}>اضافه به سبد خرید</Button>
                                 <div className={styles.select}>
-                                    <Form.Control  as="select" disabled={this.state.flag}>
+                                    <Form.Control  as="select" disabled={this.state.flag} id="formSelect">
                                         {this.handleSelect()}
                                     </Form.Control>
                                 </div>
@@ -83,5 +88,9 @@ class ProductPage extends Component {
         )
     }
 }
+const mapDispatchToProps = dispatch => ({
+    addToCart : (productId,details) => dispatch(addToCart(productId,details)),
+    
+})
 
-export default withRouter(ProductPage)
+export default withRouter(connect(null , mapDispatchToProps)(ProductPage))
