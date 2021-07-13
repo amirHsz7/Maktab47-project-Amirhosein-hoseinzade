@@ -9,8 +9,10 @@ import { PanelProducts } from "../pages/PanelProducts/PanelProducts";
 import {PanelPrices} from '../pages/PanelPrices/PanelPrices';
 import { PanelOrders } from "../pages/PanelOrders/PanelOrders";
 import  Categories  from "../pages/categories/Categories";
+import Cart from './../pages/Cart/Cart'
 // import Product from "../pages/Product/Product";
 import ProductPage from "../pages/Product/Product";
+import Shipping from "../pages/Shipping/Shipping";
 
 class AppRoute extends Component {
   render() {
@@ -52,12 +54,12 @@ class AppRoute extends Component {
           </Route>
           <Route path="/cart" exact>  
             <Main>
-                <h1>cart</h1>
+                <Cart />
             </Main>
           </Route>
           <Route path="/shipping" exact>
             <Main>
-                <h1>shipping</h1>
+                <Shipping />
             </Main>
           </Route>
           <Route path="/finish" exact>

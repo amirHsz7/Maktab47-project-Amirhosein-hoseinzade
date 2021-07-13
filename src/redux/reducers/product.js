@@ -10,11 +10,16 @@ const products = (state = {} , action) => {
                 [productId] :{
                     "id" : productId,
                     "details" : details
-                } 
-                    
-                    
-                
+                }   
+                        
             }
+            case 'CANCEL':
+                return {}
+            // case "CANCELL"  :
+            //     let { details} = action
+            //     return {
+            //         ...state
+            //     } 
         default:
             return state;
     }

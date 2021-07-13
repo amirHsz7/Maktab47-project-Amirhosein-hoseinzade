@@ -25,7 +25,8 @@ class ProductPage extends Component {
                 
             },
             details : null,
-            flag : false
+            flag : false,
+            flag2: false
         }
     }
     async componentDidMount(){
@@ -37,7 +38,8 @@ class ProductPage extends Component {
             document.getElementById('pp').textContent = "نامشخص"
         }
         if(!this.state.product.inventory) this.setState({flag : true})
-
+        if(parseInt(localStorage.getItem('CounterOrders'))==0) document.getElementById('ppp').innerHTML=''
+        else document.getElementById('ppp').innerHTML=parseInt(localStorage.getItem('CounterOrders'))
     }
     handleSelect (){
         const renderElement = []
@@ -64,7 +66,7 @@ class ProductPage extends Component {
                         <div style={{display:"flex" ,flexDirection:"column" ,alignItems:"flex-start"}}>
                             <div><p id="pp">{product.price} تومان</p></div>
                             <div className={styles.formContainer}>
-                                <Button className={styles.btn} variant="success" onClick={()=>{addToCart(this.state.product.id,{name : product.name,inventory : product.inventory,price : product.price})}}>اضافه به سبد خرید</Button>
+                                <Button className={styles.btn} variant="success" onClick={()=>{if(this.state.flag2==false){localStorage.setItem('CounterOrders' ,parseInt(localStorage.getItem('CounterOrders'))+1);this.state.flag2=true};addToCart(this.state.product.id,{id :product.id ,name : product.name,inventory : document.getElementById('formSelect').value,price : product.price,image : product.image})}}>اضافه به سبد خرید</Button>
                                 <div className={styles.select}>
                                     <Form.Control  as="select" disabled={this.state.flag} id="formSelect">
                                         {this.handleSelect()}
@@ -89,7 +91,17 @@ class ProductPage extends Component {
     }
 }
 const mapDispatchToProps = dispatch => ({
-    addToCart : (productId,details) => dispatch(addToCart(productId,details)),
+    addToCart : (productId,details) =>{ dispatch(addToCart(productId,details))
+        // localStorage.setItem('CounterOrders' ,parseInt(localStorage.getItem('CounterOrders'))+1)
+    if(parseInt(localStorage.getItem('CounterOrders'))==0) {
+        document.getElementById('ppp').innerHTML=''
+        document.getElementById('ppp').style.background="none"
+    }
+    else {
+        document.getElementById('ppp').innerHTML=parseInt(localStorage.getItem('CounterOrders'))
+        document.getElementById('ppp').style.background="rgb(187, 64, 64)"
+    }
+    }
     
 })
 

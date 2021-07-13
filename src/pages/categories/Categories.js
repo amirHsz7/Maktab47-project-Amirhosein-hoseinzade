@@ -53,7 +53,7 @@ import styles from './categories.module.css'
             this.props.history.push(`/${gp}`,{
                  group : gp
             })
-            window.location.reload();
+            // window.location.reload();
     }
     handleCickProduct(id){
         this.props.history.push(`/product/${id}`,{

@@ -1,0 +1,30 @@
+.formGroup{
+    width:400px
+}
+
+.formInside{
+    display: flex;
+    flex-direction: column; 
+    /* align-items: center; */
+    
+}   
+.formInsideInside{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+ /* .formInside > div{
+    width: 400px;
+    flex:50%;
+} */
+.formInsideLast{
+    display: flex;
+    flex-direction: row;
+    margin-right: 180px;
+}
+.btn{
+    
+    /* width: 100px; */
+    text-align: center;
+    
+}

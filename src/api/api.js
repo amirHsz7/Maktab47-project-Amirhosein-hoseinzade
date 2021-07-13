@@ -29,3 +29,10 @@ export function deleteFormProduct(id) {
     .then((response) => response.data)
     .catch((error) => error);
 }
+export function postFormOrder(data) {
+  return http.post(`/orders`, data,{headers: {
+    'Content-Type': 'multipart/form-data'
+  }})
+    .then((response) => response.data)
+    .catch((error) => error);
+}

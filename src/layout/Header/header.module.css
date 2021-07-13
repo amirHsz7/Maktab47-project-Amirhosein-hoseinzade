@@ -28,3 +28,22 @@
     font-size: 15px;
     font-weight: bold;
 }
+.orders{
+    /* margin-left: 10px; */
+    width:20px;
+    height:20px;
+    border-radius: 10px ;
+    background-color: rgb(187, 64, 64);
+    color: white;
+    position: relative;
+    left: 10px;
+    top:1px;
+    text-align: center;
+    text-transform: capitalize;
+    align-items: center;
+}
+.notice{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
