@@ -30,7 +30,6 @@ class PanelProducts extends Component {
                     </tr>
             )
         })
-        console.log(renderElement)
         return renderElement;
     }
     async handlePage(num){
@@ -97,7 +96,6 @@ class PanelProducts extends Component {
       
     render() {
         
-        console.log('item list' , this.state.itemList)
         return (
             <div>
                 <div className={styles.container}>

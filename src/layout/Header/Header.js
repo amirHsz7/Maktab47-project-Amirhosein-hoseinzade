@@ -4,7 +4,6 @@ import Image from 'react-bootstrap/Image'
 import styles from './header.module.css'
 import { Link } from "react-router-dom";
 import {withRouter} from "react-router-dom"
-import {BASE_URL_SITE} from '../../configs/variables.config'
 import { connect } from "react-redux";
 class Header extends Component {
     
@@ -45,10 +44,10 @@ class Header extends Component {
                 </div>
                 <div className={styles.part}>
                 <div ><a href={'/'} className={styles.font}><Link to="/admin-panel" className={`alink-blue`}>مدیریت</Link></a></div>
-                    <div className={styles.part2}><a href={'/'} onclick={this.handleLocal()} className={styles.font}><Link  to="/cart"  className={`alink-blue`}>سبد خرید</Link></a>
+                    <div className={styles.part2}><a href={'/'} onClick={this.handleLocal()} className={styles.font}><Link  to="/cart"  className={`alink-blue`}>سبد خرید</Link></a>
                         <div className={styles.notice}>
                             <div id="ppp" className={styles.orders}>{this.handleNotice()}</div>
-                            <img className={styles.img} onclick={this.handleClick} src="https://img.icons8.com/material-two-tone/24/000000/add-basket.png"/>
+                            <img className={styles.img} src="https://img.icons8.com/material-two-tone/24/000000/add-basket.png"/>
                         </div>
                     </div>
                 </div>

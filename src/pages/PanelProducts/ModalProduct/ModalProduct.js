@@ -17,7 +17,7 @@ import {BASE_URL_SITE} from '../../../configs/variables.config'
     form.append('group',document.getElementById('groupid').value );
     form.append('category','products' );
         const resualt = await postFormProduct(form)
-        console.log(resualt)
+        
     }
     return (
       <>
@@ -60,7 +60,7 @@ import {BASE_URL_SITE} from '../../../configs/variables.config'
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary"  onClick={handleClose}>
-              Close
+              بستن
             </Button>
           </Modal.Footer>
         </Modal>
@@ -141,7 +141,7 @@ import {BASE_URL_SITE} from '../../../configs/variables.config'
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary"  onClick={handleClose}>
-              Close
+              بستن
             </Button>
           </Modal.Footer>
         </Modal>

@@ -14,27 +14,31 @@ class Shipping extends Component {
     }
     handleSubmit = async (event) => {
         const form = event.currentTarget;
-    if (form.checkValidity() === false) {
+     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
-    this.setState({validated : true });
-    const formData = new FormData()
-    formData.append('name',document.getElementById('nameInput').value +' '+document.getElementById('lastNameInput').value )
-    formData.append('adress',document.getElementById('adressInput').value)
-    formData.append('registration-time',document.getElementById('dateInput').value)
-    formData.append('tel',document.getElementById('telInput').value)
-    formData.append('isDelivered',false)
-    formData.append('details',JSON.stringify(this.state.details))
-    await postFormOrder(formData)
+    
+    else {
+        localStorage.setItem('itemList',"[]")
+        localStorage.setItem('CounterOrders',0)
+        const formData = new FormData()
+        formData.append('name',document.getElementById('nameInput').value +' '+document.getElementById('lastNameInput').value )
+        formData.append('adress',document.getElementById('adressInput').value)
+        formData.append('registration-time',document.getElementById('dateInput').value)
+        formData.append('tel',document.getElementById('telInput').value)
+        formData.append('isDelivered',false)
+        formData.append('details',JSON.stringify(this.state.details))
+        await postFormOrder(formData) 
+        }
+        this.setState({validated : true });
     }
     render() {
-        console.log(this.state.details)
         return (
-            <div dir="rtl">
-                <div>نهایی کردن خرید</div>
+            <div dir="rtl" style={{marginTop:'20px'}}>
+                <div style={{fontSize:'20px'}}>نهایی کردن خرید</div>
                 <div className={styles.formContainer}>
-                <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit} action={'www.google.com'}>
+                <Form noValidate validated={this.state.validated} onSubmit={this.handleSubmit} action={'http://127.0.0.1:5500/'}>
                     <div className={styles.formInside}>
                     <div className={styles.formInsideInside}>
                     <Form.Group className={styles.formGroup} controlId="formBasicName">

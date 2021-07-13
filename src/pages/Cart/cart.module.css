@@ -18,3 +18,16 @@
     flex-direction: row;
     justify-content: space-between;
 }
+.image:before {
+    content: '';
+    display: block;
+    position: absolute;
+    /* top:120px; */
+    /* right:40px; */
+    height: 40px;
+    width: 40px;
+    background-image: url("../../asset/images/logomain.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

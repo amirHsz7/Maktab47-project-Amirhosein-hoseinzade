@@ -24,7 +24,8 @@ class Cart extends Component {
     }
     let length = document.getElementsByClassName('input').length
      for(let i =0 ; i<length;i++){
-        if(document.getElementsByClassName(`inputinventory`)[i].value != '') document.getElementsByClassName(`inputinventory`)[i].nextElementSibling.classList.add('WHITE_COLOR')  
+        if(document.getElementsByClassName(`inputinventory`)[i].value != '') document.getElementsByClassName(`inputinventory`)[i].nextElementSibling.classList.add('WHITE_COLOR') 
+         
      }
     
 
@@ -56,15 +57,14 @@ class Cart extends Component {
         const renderElement = []
         var list = localStorage.getItem('itemList');
         list = JSON.parse(list)
-        console.log('listttt',list)
         list.forEach(obj=>{
             renderElement.push(
             <tr id={obj.id} className={`tr`}>
-                <td><Image src={`http://localhost:3000${obj.image}`} alt="" width="40" height="40" roundedCircle /></td>
+                <td><Image className={styles.image} src={`http://localhost:3000${obj.image}`} alt="" width="40" height="40" rounded /></td>
                 <td>{obj.name}</td>
                 <td><p>{obj.price}</p></td>
                 <td><input id={`${obj.id}-1`} className={`inputinventory input ${styles.input}`} type="text"  onChange={()=>{this.handleChangeBut(obj.id)}} /><p>{obj.inventory}</p></td>
-                <td onClick={()=>{this.handleDelete(obj.id)}}><div>حذف</div></td>
+                <td onClick={()=>{this.handleDelete(obj.id)}}><div><a className={`alink-blue`} >حذف</a></div></td>
             </tr>)
              
         })
@@ -94,8 +94,6 @@ class Cart extends Component {
            else temp.inventory = e.children[3].children[1].innerHTML
            details.push(temp)
         })
-        
-        // console.log('details',details)
 
         this.props.history.push(`/shipping`,{
             details : details
@@ -108,7 +106,6 @@ class Cart extends Component {
             localStorage.setItem('flag',true)   
         }
         const {product,name,cancel} = this.props
-        // localStorage.setItem('itemList',  '[]')
         var itemList = localStorage.getItem('itemList');
        
         itemList = JSON.parse(itemList)

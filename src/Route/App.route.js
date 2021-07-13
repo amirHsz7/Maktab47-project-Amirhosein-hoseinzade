@@ -13,6 +13,8 @@ import Cart from './../pages/Cart/Cart'
 // import Product from "../pages/Product/Product";
 import ProductPage from "../pages/Product/Product";
 import Shipping from "../pages/Shipping/Shipping";
+import { Failed } from "../pages/Finish/Failed";
+import { Succeed } from "../pages/Finish/Succeed";
 
 class AppRoute extends Component {
   render() {
@@ -62,9 +64,14 @@ class AppRoute extends Component {
                 <Shipping />
             </Main>
           </Route>
-          <Route path="/finish" exact>
+          <Route path="/failed" exact>
             <Main>
-                <h1>finish</h1>
+                <Failed />
+            </Main>
+          </Route>
+          <Route path="/succeed" exact>
+            <Main>
+                <Succeed />
             </Main>
           </Route>
           <Route path="/signin" exact>

@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import Form from 'react-bootstrap/Form'
 import styles from './panelorders.module.css'
 import Table from 'react-bootstrap/Table'
 import {fetchData} from '../../api/api'
 import Pagination from 'react-bootstrap/Pagination'
-
+import {ShowOrder} from './OrderModal.js/OrderModal'
 class PanelOrders extends Component {
     constructor(props){
         super(props)
@@ -22,12 +21,16 @@ class PanelOrders extends Component {
     handleRender(){
         const renderElement = []
         this.state.itemList.forEach(e =>{
+            let totalMoney = 0
+            e.details.forEach(n=>{
+                totalMoney = n.price * n.inventory + totalMoney
+            })
             renderElement.push(
                     <tr>
                         <td><p>{e.name}</p></td>
-                        <td><p>{e.totalMoney}</p></td>
+                        <td><p>{totalMoney}</p></td>
                         <td><p>{e.time}</p></td>
-                        <td><div><a className={`alink-blue`}>بررسی سفارشات</a></div></td>
+                        <td><div><ShowOrder isDelivered={e.isDelivered} id={e.id} name={e.name} adress={e.adress} tel={e.tel} time={e.time} details={e.details} /></div></td>
                     </tr>
             )
         })
@@ -37,14 +40,19 @@ class PanelOrders extends Component {
     async handlePage(num,bol){
         const db = await fetchData(`orders?isDelivered=${bol}&_page=${num}&_limit=5`);
         const itemList = []
-        db.forEach(e =>{
-             itemList.push( {
+        db.forEach(async e =>{
+           
+           await  itemList.push( {
                 name : e.name,
                 totalMoney : e["total-amount"],
                 time : e["registration-time"],
+                adress : e.adress,
+                tel : e.tel,
+                id : e.id,
+                isDelivered : e.isDelivered,
+                details :  JSON.parse(e.details)
                 })
         })
-        console.log(itemList)
         this.setState({itemList : itemList })
         
      }

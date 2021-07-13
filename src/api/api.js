@@ -36,3 +36,8 @@ export function postFormOrder(data) {
     .then((response) => response.data)
     .catch((error) => error);
 }
+export function editFormOrder(id, data) {
+  return http.patch(`/orders/${id}`, data)
+    .then((response) => response.data)
+    .catch((error) => error);
+}

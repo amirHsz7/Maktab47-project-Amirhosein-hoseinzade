@@ -6,7 +6,6 @@ const style={
 }
 class signinLayout extends Component {
   render() {
-    console.log('props', this.props);
     return (
       <div style={style}>
         {this.props.children}
