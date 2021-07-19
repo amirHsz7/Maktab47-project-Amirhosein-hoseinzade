@@ -8,6 +8,7 @@
     height: 120px;
     align-items: center;
     background-color: rgb(214, 214, 214);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 .container:hover{
     background-color: rgb(224, 224, 224);

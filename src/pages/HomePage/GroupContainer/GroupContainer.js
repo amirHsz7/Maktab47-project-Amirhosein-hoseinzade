@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { Product } from '../../../component'
 import {fetchData} from '../../../api/api'
 import { withRouter } from "react-router-dom";
-import styles from './GroupContainer.module.css'
+import styles from './GroupContainer.module.scss'
 
 class GroupContainer extends Component {
     constructor(props){
@@ -51,7 +51,10 @@ class GroupContainer extends Component {
         
         return (
             <div dir="rtl" className={styles.mainDiv}>
-                <div className={`${styles.link} alink-blue`} to={`/category-${this.props.group}`} onClick={this.handleClick}>{`کالاهای گروه ${this.props.group}`} </div>
+
+                <div className={styles.linkContainer}>
+                <div className={`${styles.link}`} to={`/category-${this.props.group}`} onClick={this.handleClick}>{`کالاهای گروه ${this.props.group}`} </div>
+                </div>
                 <div className={styles.GroupContainer}>
                 {this.handleRender()}
                 </div>

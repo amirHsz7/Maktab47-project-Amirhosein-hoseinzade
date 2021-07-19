@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import styles from './admin-header.module.css'
+import styles from './admin-header.module.scss'
 // import '../../asset/styles/global.css';
 const edit = {
     color: 'color: rgb(71, 130, 218);'
@@ -25,7 +25,7 @@ class AdminHeader extends Component {
                    <div className={`${styles.part2} .${this.state.focused}`}><a href={'/'} onClick={()=>{this.handleColor(this.state.focused)}}><Link to='/admin-panel-prices' className={`alink-black`}>موجودی و قیمت ها</Link></a></div>
                    <div className={`${styles.part2} .${this.state.focused}`}><a href={'/'} onClick={()=>{this.handleColor(this.state.focused)}}><Link to='/admin-panel-orders' className={`alink-black`}>سفارش ها</Link></a></div>
                </div>
-               <div className={styles.return}><a href={'/'}><Link to='/home' className={`alink-blue`}>بازگشت به سایت</Link></a></div>
+               <div className={styles.wrapper}><Link to='/home' className={styles.offset}>بازگشت به سایت</Link></div>
             </div>
         )
     }

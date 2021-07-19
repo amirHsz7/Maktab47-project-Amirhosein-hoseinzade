@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import Pagination from 'react-bootstrap/Pagination'
 import {fetchData} from '../../api/api'
 import {Product} from './../../component'
-import styles from './categories.module.css'
+import styles from './categories.module.scss'
  class Categories extends Component {
      constructor(props){
          super(props);
@@ -53,7 +53,7 @@ import styles from './categories.module.css'
             this.props.history.push(`/${gp}`,{
                  group : gp
             })
-            // window.location.reload();
+            window.location.reload();
     }
     handleCickProduct(id){
         this.props.history.push(`/product/${id}`,{
@@ -72,7 +72,7 @@ import styles from './categories.module.css'
         })
         this.setState({itemList  })
         }
-    
+     
     render() {
         
         return (

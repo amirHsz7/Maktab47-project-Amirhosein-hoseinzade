@@ -4,7 +4,7 @@ import  Header  from "./Header/Header";
 class Main extends Component {
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:'rgb(232, 232, 232)'}}>
         <Header />
         {this.props.children}
       </div>

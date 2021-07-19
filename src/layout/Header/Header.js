@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import image1 from '../../asset/images/logomain.jpg';
+import image1 from '../../asset/images/company-logo-transparent-png-19.png';
 import Image from 'react-bootstrap/Image'
 import styles from './header.module.css'
 import { Link } from "react-router-dom";
@@ -38,13 +38,13 @@ class Header extends Component {
             <div className={styles.header}>
                 <div className={styles.part}>
                 <Link to="/home">
-                <Image src={image1} height='64' width='64'  />
+                <Image src={image1} height='64' width='80'  />
                 </Link>
-                <h1 className={styles.h1}>فروشگاه فلان</h1>
+                <h1 className={styles.h1}>MARKET</h1>
                 </div>
                 <div className={styles.part}>
-                <div ><a href={'/'} className={styles.font}><Link to="/admin-panel" className={`alink-blue`}>مدیریت</Link></a></div>
-                    <div className={styles.part2}><a href={'/'} onClick={this.handleLocal()} className={styles.font}><Link  to="/cart"  className={`alink-blue`}>سبد خرید</Link></a>
+                <div ><a href={'/'} className={styles.font}><Link to="/admin-panel" className={styles.font} >مدیریت</Link></a></div>
+                    <div className={styles.part2}><div  onClick={this.handleLocal()} ><Link className={styles.font} to="/cart" >سبد خرید</Link></div>
                         <div className={styles.notice}>
                             <div id="ppp" className={styles.orders}>{this.handleNotice()}</div>
                             <img className={styles.img} src="https://img.icons8.com/material-two-tone/24/000000/add-basket.png"/>

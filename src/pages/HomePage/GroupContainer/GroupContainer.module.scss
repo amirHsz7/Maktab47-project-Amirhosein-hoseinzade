@@ -1,0 +1,82 @@
+
+.GroupContainer{
+    display: flex;
+    justify-content:space-between;
+    /* background-color: black; */
+    margin : 10px;
+    flex-wrap: wrap;
+    /* margin-bottom: 20px; */
+}
+.link{
+    
+    font-size: 30px;
+    display: block;
+//   margin: auto;
+  padding: 1rem 1.25rem;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+  position: relative;
+  transition: all .3s cubic-bezier(.2, 0, 0, 1);
+  z-index: 1;
+  bottom: 20px;
+  right:20px;
+  
+  &:after {
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    right: 1.25rem;
+    left: 1.25rem;
+    background-color: #0c0c0c;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    transform-origin: bottom center;
+    z-index: -1;
+  }
+  
+  &:hover {
+    color: white;
+    
+    &:after {
+      right: 0;
+      left: 0;
+      height: 100%;
+    }
+  }
+    
+}
+// .link:hover{
+//     text-decoration: underline;
+//     cursor: pointer;
+// }
+.GroupContainer > div{
+    margin-bottom: 30px;
+    flex : 30%;
+    /* flex-wrap: wrap; */
+    /* width: min-content; */
+}
+@keyframes example {
+    0%   {border-left: 2px solid #ffffff;}
+    25%  {border-left: 3px solid #ffe6e6;}
+    50%  {border-left: 4px solid #ff8080;}
+    100% {border-left: 5px solid #ff0000;}
+}
+.GroupContainer>div>div:hover {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    animation-name: example;
+    animation-duration: 0.25s;
+    border-left: 8px solid red;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+.mainDiv{
+    margin-top:30px;
+}
+.linkContainer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}

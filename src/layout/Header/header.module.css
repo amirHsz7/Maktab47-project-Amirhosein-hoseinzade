@@ -1,13 +1,27 @@
 .header{
-    border-bottom:2px ridge black;
+    border-bottom:1px ridge black;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
     height: 100px;
+    width:100%;
+    /* background: url('../../asset/images/header.png') no-repeat center center fixed; */
+    /* background-size:cover; */
+    background-position: top center;
+    background-attachment:scroll;
+    background-size: cover;
+    position: sticky;
+    z-index: 10;
+    top:0;
+    color:#5b676e;
+    background-color: white;
+    
 }
 .h1{
     margin-right:30px;
     font-size: 35px;
+    font-family: Gravitas One;
+    
 }
 .part{
     display:flex;
@@ -27,6 +41,13 @@
 .font{
     font-size: 15px;
     font-weight: bold;
+    color:#5b676e;
+}
+.font:hover{
+    text-decoration: none;
+    color:rgb(0, 121, 132);
+    padding-top: 33px;
+    border-top:5px solid rgb(0, 121, 132)
 }
 .orders{
     /* margin-left: 10px; */
